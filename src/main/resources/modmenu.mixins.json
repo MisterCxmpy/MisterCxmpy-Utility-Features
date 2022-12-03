@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.cosgun.modmenu.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+  ],
+  "client": [
+    "ExampleMixin",
+    "GamePauseMenu",
+    "FishingBobberEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
