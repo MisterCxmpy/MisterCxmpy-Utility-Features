@@ -1,6 +1,5 @@
 package net.cosgun.modmenu.gui;
 
-import net.cosgun.modmenu.Flying;
 import net.cosgun.modmenu.ModMenu;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -8,7 +7,6 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.text.LiteralTextContent;
 import net.minecraft.text.Text;
 
 @Environment(EnvType.CLIENT)
@@ -39,6 +37,13 @@ public class ModMenuGUI extends Screen {
             return Text.literal("Auto Farming is disabled");
     }
 
+    Text boatFlyingText() {
+        if (ModMenu.boatFlyingEnabled)
+            return Text.literal("Boat flying is enabled");
+        else
+            return Text.literal("Boat flying is disabled");
+    }
+
     protected void init() {
         this.addDrawableChild(new ButtonWidget(this.width / 2 - 102, this.height / 4 + 24 + -16, 204, 20, autoFishingText(), (button) -> {
             ModMenu.autoFishingEnabled = !ModMenu.autoFishingEnabled;
@@ -54,6 +59,11 @@ public class ModMenuGUI extends Screen {
         this.addDrawableChild(new ButtonWidget(this.width / 2 - 102, this.height / 4 + 72 + -16, 204, 20, autoFarmingText(), (button) -> {
             ModMenu.autoFarmingEnabled = !ModMenu.autoFarmingEnabled;
             button.setMessage(autoFarmingText());
+        }));
+
+        this.addDrawableChild(new ButtonWidget(this.width / 2 - 102, this.height / 4 + 96 + -16, 204, 20, boatFlyingText(), (button) -> {
+            ModMenu.boatFlyingEnabled = !ModMenu.boatFlyingEnabled;
+            button.setMessage(boatFlyingText());
         }));
     }
 

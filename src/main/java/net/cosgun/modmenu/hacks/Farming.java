@@ -1,5 +1,6 @@
-package net.cosgun.modmenu;
+package net.cosgun.modmenu.hacks;
 
+import net.cosgun.modmenu.ModMenu;
 import net.minecraft.block.AirBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FarmlandBlock;

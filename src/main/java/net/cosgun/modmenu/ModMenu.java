@@ -1,11 +1,13 @@
 package net.cosgun.modmenu;
 
+import net.cosgun.modmenu.hacks.BoatFlying;
+import net.cosgun.modmenu.hacks.AutoFishing;
+import net.cosgun.modmenu.hacks.Farming;
+import net.cosgun.modmenu.hacks.Flying;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.minecraft.client.MinecraftClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import net.cosgun.modmenu.AutoFishing;
 
 public class ModMenu implements ModInitializer {
 
@@ -14,6 +16,7 @@ public class ModMenu implements ModInitializer {
 	public AutoFishing autoFishing;
 	public Flying flying;
 	public Farming farming;
+	public BoatFlying boatFlying;
 
 	public static final String MOD_ID = "modmenu";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
@@ -21,6 +24,7 @@ public class ModMenu implements ModInitializer {
 	public static boolean autoFishingEnabled;
 	public static boolean flyingEnabled;
 	public static boolean autoFarmingEnabled;
+	public static boolean boatFlyingEnabled;
 
 	@Override
 	public void onInitialize() {
@@ -28,8 +32,10 @@ public class ModMenu implements ModInitializer {
 		autoFishing = new AutoFishing();
 		flying = new Flying();
 		farming = new Farming();
+		boatFlying = new BoatFlying();
 
 		ClientTickEvents.END_CLIENT_TICK.register(farming::tick);
+		ClientTickEvents.END_CLIENT_TICK.register(boatFlying::tick);
 	}
 
 	public static ModMenu getInstance() {

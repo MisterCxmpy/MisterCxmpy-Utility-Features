@@ -1,5 +1,6 @@
-package net.cosgun.modmenu;
+package net.cosgun.modmenu.hacks;
 
+import net.cosgun.modmenu.ModMenu;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.Hand;
