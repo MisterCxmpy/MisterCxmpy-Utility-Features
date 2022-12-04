@@ -33,7 +33,6 @@ public class ModMenu implements ModInitializer {
 	public static boolean xRayEnabled;
 
 	private double defaultGamma;
-	private double oldGammaValue;
 	private ISimpleOption<Double> gammaOption2;
 
 	@Override
@@ -59,14 +58,13 @@ public class ModMenu implements ModInitializer {
 			SimpleOption<Double> gammaOption = MinecraftClient.getInstance().options.getGamma();
 
 			gammaOption2 = (ISimpleOption<Double>)(Object)gammaOption;
-			oldGammaValue = gammaOption.getValue();
 		}
 
 
 		if (xRayEnabled){
-			gammaOption2.forceSetValue(oldGammaValue + 20);
+			gammaOption2.forceSetValue(1000.0);
 		} else {
-			MinecraftClient.getInstance().options.getGamma().setValue(defaultGamma);
+			gammaOption2.forceSetValue(defaultGamma);
 		}
 	}
 
