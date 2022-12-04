@@ -60,7 +60,6 @@ public class ModMenu implements ModInitializer {
 			gammaOption2 = (ISimpleOption<Double>)(Object)gammaOption;
 		}
 
-
 		if (xRayEnabled){
 			gammaOption2.forceSetValue(1000.0);
 		} else {
