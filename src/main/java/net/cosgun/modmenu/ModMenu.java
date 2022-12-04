@@ -17,6 +17,8 @@ public class ModMenu implements ModInitializer {
 
 	static ModMenu instance;
 
+	public MinecraftClient client;
+
 	public AutoFishing autoFishing;
 	public Flying flying;
 	public Farming farming;
@@ -31,6 +33,7 @@ public class ModMenu implements ModInitializer {
 	public static boolean autoFarmingEnabled;
 	public static boolean boatFlyingEnabled;
 	public static boolean xRayEnabled;
+	public static boolean noFallEnabled;
 
 	private double defaultGamma;
 	private ISimpleOption<Double> gammaOption2;
@@ -50,12 +53,13 @@ public class ModMenu implements ModInitializer {
 		ClientTickEvents.END_CLIENT_TICK.register(boatFlying::tick);
 		ClientTickEvents.END_CLIENT_TICK.register(this::tick);
 
+		client = MinecraftClient.getInstance();
 	}
 
 	public void tick(MinecraftClient client) {
 		if (defaultGamma == 0) {
-			defaultGamma = MinecraftClient.getInstance().options.getGamma().getValue();
-			SimpleOption<Double> gammaOption = MinecraftClient.getInstance().options.getGamma();
+			defaultGamma = client.options.getGamma().getValue();
+			SimpleOption<Double> gammaOption = client.options.getGamma();
 
 			gammaOption2 = (ISimpleOption<Double>)(Object)gammaOption;
 		}

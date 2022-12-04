@@ -11,7 +11,8 @@
     "FishingBobberEntityMixin",
     "BlockMixin",
     "BlockStateMixin",
-    "SimpleOptionMixin"
+    "SimpleOptionMixin",
+    "NoFallMixin"
   ],
   "injectors": {
     "defaultRequire": 1

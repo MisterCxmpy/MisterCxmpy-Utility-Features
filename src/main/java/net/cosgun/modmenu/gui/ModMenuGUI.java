@@ -51,6 +51,12 @@ public class ModMenuGUI extends Screen {
         else
             return Text.literal("XRay is disabled");
     }
+    Text noFallText() {
+        if (ModMenu.noFallEnabled)
+            return Text.literal("NoFall is enabled");
+        else
+            return Text.literal("NoFall is disabled");
+    }
 
     protected void init() {
         this.addDrawableChild(new ButtonWidget(this.width / 2 - 102, this.height / 4 + 24 + -16, 204, 20, autoFishingText(), (button) -> {
@@ -78,6 +84,11 @@ public class ModMenuGUI extends Screen {
             ModMenu.xRayEnabled = !ModMenu.xRayEnabled;
             MinecraftClient.getInstance().worldRenderer.reload();
             button.setMessage(xRayText());
+        }));
+
+        this.addDrawableChild(new ButtonWidget(this.width / 2 - 102, this.height / 4 + 144 + -16, 204, 20, noFallText(), (button) -> {
+            ModMenu.noFallEnabled = !ModMenu.noFallEnabled;
+            button.setMessage(noFallText());
         }));
     }
 
