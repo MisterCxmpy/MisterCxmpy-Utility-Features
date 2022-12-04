@@ -6,6 +6,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
+import net.minecraft.client.option.GameOptions;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
 
@@ -44,6 +45,13 @@ public class ModMenuGUI extends Screen {
             return Text.literal("Boat flying is disabled");
     }
 
+    Text xRayText() {
+        if (ModMenu.xRayEnabled)
+            return Text.literal("XRay is enabled");
+        else
+            return Text.literal("XRay is disabled");
+    }
+
     protected void init() {
         this.addDrawableChild(new ButtonWidget(this.width / 2 - 102, this.height / 4 + 24 + -16, 204, 20, autoFishingText(), (button) -> {
             ModMenu.autoFishingEnabled = !ModMenu.autoFishingEnabled;
@@ -64,6 +72,12 @@ public class ModMenuGUI extends Screen {
         this.addDrawableChild(new ButtonWidget(this.width / 2 - 102, this.height / 4 + 96 + -16, 204, 20, boatFlyingText(), (button) -> {
             ModMenu.boatFlyingEnabled = !ModMenu.boatFlyingEnabled;
             button.setMessage(boatFlyingText());
+        }));
+
+        this.addDrawableChild(new ButtonWidget(this.width / 2 - 102, this.height / 4 + 120 + -16, 204, 20, xRayText(), (button) -> {
+            ModMenu.xRayEnabled = !ModMenu.xRayEnabled;
+            MinecraftClient.getInstance().worldRenderer.reload();
+            button.setMessage(xRayText());
         }));
     }
 

@@ -8,7 +8,9 @@
   "client": [
     "ExampleMixin",
     "GamePauseMenu",
-    "FishingBobberEntityMixin"
+    "FishingBobberEntityMixin",
+    "BlockStateMixin",
+    "SimpleOptionMixin"
   ],
   "injectors": {
     "defaultRequire": 1

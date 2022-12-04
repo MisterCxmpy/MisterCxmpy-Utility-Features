@@ -1,11 +1,15 @@
 package net.cosgun.modmenu;
 
+import net.cosgun.modmenu.config.XRay;
 import net.cosgun.modmenu.hacks.BoatFlying;
 import net.cosgun.modmenu.hacks.AutoFishing;
 import net.cosgun.modmenu.hacks.Farming;
 import net.cosgun.modmenu.hacks.Flying;
+import net.cosgun.modmenu.interfaces.ISimpleOption;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.option.SimpleOption;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,6 +21,7 @@ public class ModMenu implements ModInitializer {
 	public Flying flying;
 	public Farming farming;
 	public BoatFlying boatFlying;
+	public XRay xRay;
 
 	public static final String MOD_ID = "modmenu";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
@@ -25,6 +30,11 @@ public class ModMenu implements ModInitializer {
 	public static boolean flyingEnabled;
 	public static boolean autoFarmingEnabled;
 	public static boolean boatFlyingEnabled;
+	public static boolean xRayEnabled;
+
+	private double defaultGamma;
+	private double oldGammaValue;
+	private ISimpleOption<Double> gammaOption2;
 
 	@Override
 	public void onInitialize() {
@@ -33,9 +43,31 @@ public class ModMenu implements ModInitializer {
 		flying = new Flying();
 		farming = new Farming();
 		boatFlying = new BoatFlying();
+		xRay = new XRay();
+
+
 
 		ClientTickEvents.END_CLIENT_TICK.register(farming::tick);
 		ClientTickEvents.END_CLIENT_TICK.register(boatFlying::tick);
+		ClientTickEvents.END_CLIENT_TICK.register(this::tick);
+
+	}
+
+	public void tick(MinecraftClient client) {
+		if (defaultGamma == 0) {
+			defaultGamma = MinecraftClient.getInstance().options.getGamma().getValue();
+			SimpleOption<Double> gammaOption = MinecraftClient.getInstance().options.getGamma();
+
+			gammaOption2 = (ISimpleOption<Double>)(Object)gammaOption;
+			oldGammaValue = gammaOption.getValue();
+		}
+
+
+		if (xRayEnabled){
+			gammaOption2.forceSetValue(oldGammaValue + 20);
+		} else {
+			MinecraftClient.getInstance().options.getGamma().setValue(defaultGamma);
+		}
 	}
 
 	public static ModMenu getInstance() {
