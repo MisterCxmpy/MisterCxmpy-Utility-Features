@@ -1,6 +1,7 @@
 package net.cosgun.modmenu.config;
 
 import net.cosgun.modmenu.ModMenu;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.effect.StatusEffect;
@@ -48,8 +49,8 @@ public class XRay {
         xrayBlocks.add("Block{minecraft:water}");
     }
 
-    public boolean showBlock(BlockState state) {
-        if (xrayBlocks.contains(state.getBlock().toString())) {
+    public boolean showBlock(Block state) {
+        if (xrayBlocks.contains(state.toString())) {
             return true;
         }
         return false;

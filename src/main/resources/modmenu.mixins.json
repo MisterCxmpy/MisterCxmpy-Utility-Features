@@ -9,6 +9,7 @@
     "ExampleMixin",
     "GamePauseMenu",
     "FishingBobberEntityMixin",
+    "BlockMixin",
     "BlockStateMixin",
     "SimpleOptionMixin"
   ],
