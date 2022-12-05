@@ -1,4 +1,4 @@
-package net.cosgun.modmenu;
+package net.cosgun.modmenu.gui;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;

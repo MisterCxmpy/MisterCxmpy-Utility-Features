@@ -13,7 +13,8 @@
     "BlockStateMixin",
     "SimpleOptionMixin",
     "NoFallMixin",
-    "InstantMineMixin"
+    "InstantMineMixin",
+    "NormalBreakSpeedFlyingMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -58,6 +58,7 @@ public class ModMenuGUI extends Screen {
         else
             return Text.literal("Insta Mine: §cDisabled");
     }
+
     Text noFallText() {
         if (ModMenu.noFallEnabled)
             return Text.literal("NoFall: §2Enabled");
@@ -65,43 +66,55 @@ public class ModMenuGUI extends Screen {
             return Text.literal("NoFall: §cDisabled");
     }
 
+    Text flyBreakSpeedText() {
+        if (ModMenu.flyBreakSpeedEnabled)
+            return Text.literal("Fly Break: §2Enabled");
+        else
+            return Text.literal("Fly Break: §cDisabled");
+    }
+
     protected void init() {
-        this.addDrawableChild(new ButtonWidget(this.width / 2 - 132, this.height / 4 + -24 + -16, 132, 20, autoFishingText(), (button) -> {
+        this.addDrawableChild(new ButtonWidget(this.width / 2 - 132, this.height / 4 + 0 + -16, 132, 20, autoFishingText(), (button) -> {
             ModMenu.autoFishingEnabled = !ModMenu.autoFishingEnabled;
             button.setMessage(autoFishingText());
         }));
 
-        this.addDrawableChild(new ButtonWidget(this.width / 2 + 4, this.height / 4 + -24 + -16, 132, 20, autoFarmingText(), (button) -> {
+        this.addDrawableChild(new ButtonWidget(this.width / 2 + 4, this.height / 4 + 0 + -16, 132, 20, autoFarmingText(), (button) -> {
             ModMenu.autoFarmingEnabled = !ModMenu.autoFarmingEnabled;
             button.setMessage(autoFarmingText());
         }));
 
-        this.addDrawableChild(new ButtonWidget(this.width / 2 - 132, this.height / 4 + 0 + -16, 132, 20, flyingText(), (button) -> {
+        this.addDrawableChild(new ButtonWidget(this.width / 2 - 132, this.height / 4 + 24 + -16, 132, 20, flyingText(), (button) -> {
             ModMenu.flyingEnabled = !ModMenu.flyingEnabled;
             ModMenu.getInstance().flying.EnableFlying(MinecraftClient.getInstance());
             button.setMessage(flyingText());
         }));
 
-        this.addDrawableChild(new ButtonWidget(this.width / 2 + 4, this.height / 4 + 0 + -16, 132, 20, boatFlyingText(), (button) -> {
+        this.addDrawableChild(new ButtonWidget(this.width / 2 + 4, this.height / 4 + 24 + -16, 132, 20, boatFlyingText(), (button) -> {
             ModMenu.boatFlyingEnabled = !ModMenu.boatFlyingEnabled;
             button.setMessage(boatFlyingText());
         }));
 
-        this.addDrawableChild(new ButtonWidget(this.width / 2 - 132, this.height / 4 + 24 + -16, 132, 20, xRayText(), (button) -> {
+        this.addDrawableChild(new ButtonWidget(this.width / 2 - 132, this.height / 4 + 48 + -16, 132, 20, xRayText(), (button) -> {
             ModMenu.xRayEnabled = !ModMenu.xRayEnabled;
             MinecraftClient.getInstance().worldRenderer.reload();
             button.setMessage(xRayText());
         }));
 
-        this.addDrawableChild(new ButtonWidget(this.width / 2 + 4, this.height / 4 + 24 + -16, 132, 20, instaMineText(), (button) -> {
+        this.addDrawableChild(new ButtonWidget(this.width / 2 + 4, this.height / 4 + 48 + -16, 132, 20, instaMineText(), (button) -> {
             ModMenu.instaMineEnabled = !ModMenu.instaMineEnabled;
             ModMenu.LOGGER.info(String.valueOf(ModMenu.instaMineEnabled));
             button.setMessage(instaMineText());
         }));
 
-        this.addDrawableChild(new ButtonWidget(this.width / 2 - 132, this.height / 4 + 48 + -16, 132, 20, noFallText(), (button) -> {
+        this.addDrawableChild(new ButtonWidget(this.width / 2 - 132, this.height / 4 + 72 + -16, 132, 20, noFallText(), (button) -> {
             ModMenu.noFallEnabled = !ModMenu.noFallEnabled;
             button.setMessage(noFallText());
+        }));
+
+        this.addDrawableChild(new ButtonWidget(this.width / 2 + 4, this.height / 4 + 72 + -16, 132, 20, flyBreakSpeedText(), (button) -> {
+            ModMenu.flyBreakSpeedEnabled = !ModMenu.flyBreakSpeedEnabled;
+            button.setMessage(flyBreakSpeedText());
         }));
     }
 

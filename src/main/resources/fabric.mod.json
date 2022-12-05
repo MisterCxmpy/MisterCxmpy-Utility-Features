@@ -23,7 +23,7 @@
     ],
     "client": [
       "net.cosgun.modmenu.ModMenuClient",
-      "net.cosgun.modmenu.RemoveLanCheating"
+      "net.cosgun.modmenu.gui.RemoveLanCheating"
     ]
   },
   "mixins": [
