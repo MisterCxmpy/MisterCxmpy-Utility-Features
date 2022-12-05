@@ -34,6 +34,7 @@ public class ModMenu implements ModInitializer {
 	public static boolean boatFlyingEnabled;
 	public static boolean xRayEnabled;
 	public static boolean noFallEnabled;
+	public static boolean instaMineEnabled;
 
 	private double defaultGamma;
 	private ISimpleOption<Double> gammaOption2;
@@ -46,8 +47,6 @@ public class ModMenu implements ModInitializer {
 		farming = new Farming();
 		boatFlying = new BoatFlying();
 		xRay = new XRay();
-
-
 
 		ClientTickEvents.END_CLIENT_TICK.register(farming::tick);
 		ClientTickEvents.END_CLIENT_TICK.register(boatFlying::tick);

@@ -12,7 +12,8 @@
     "BlockMixin",
     "BlockStateMixin",
     "SimpleOptionMixin",
-    "NoFallMixin"
+    "NoFallMixin",
+    "InstantMineMixin"
   ],
   "injectors": {
     "defaultRequire": 1
