@@ -80,6 +80,13 @@ public class ModMenuGUI extends Screen {
             return Text.literal("Always Crit: §cDisabled");
     }
 
+    Text noAttackSpeedCooldownText() {
+        if (ModMenu.noAttackCooldownEnabled)
+            return Text.literal("No Cooldown: §2Enabled");
+        else
+            return Text.literal("No Cooldown: §cDisabled");
+    }
+
     protected void init() {
         this.addDrawableChild(new ButtonWidget(this.width / 2 - 132, this.height / 4 + 0 + -16, 132, 20, autoFishingText(), (button) -> {
             ModMenu.autoFishingEnabled = !ModMenu.autoFishingEnabled;
@@ -127,6 +134,11 @@ public class ModMenuGUI extends Screen {
         this.addDrawableChild(new ButtonWidget(this.width / 2 - 132, this.height / 4 + 96 + -16, 132, 20, alwaysCritText(), (button) -> {
             ModMenu.alwaysCritEnabled = !ModMenu.alwaysCritEnabled;
             button.setMessage(alwaysCritText());
+        }));
+
+        this.addDrawableChild(new ButtonWidget(this.width / 2 + 4, this.height / 4 + 96 + -16, 132, 20, noAttackSpeedCooldownText(), (button) -> {
+            ModMenu.noAttackCooldownEnabled = !ModMenu.noAttackCooldownEnabled;
+            button.setMessage(noAttackSpeedCooldownText());
         }));
     }
 

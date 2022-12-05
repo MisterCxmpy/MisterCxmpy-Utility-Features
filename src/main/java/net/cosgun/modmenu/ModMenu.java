@@ -37,6 +37,7 @@ public class ModMenu implements ModInitializer {
 	public static boolean instaMineEnabled;
 	public static boolean flyBreakSpeedEnabled;
 	public static boolean alwaysCritEnabled;
+	public static boolean noAttackCooldownEnabled;
 
 	private double defaultGamma;
 	private ISimpleOption<Double> gammaOption2;

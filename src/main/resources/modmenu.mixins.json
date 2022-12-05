@@ -15,7 +15,8 @@
     "NoFallMixin",
     "InstantMineMixin",
     "NormalBreakSpeedFlyingMixin",
-    "AlwaysCritMixin"
+    "AlwaysCritMixin",
+    "AttackSpeedMixin"
   ],
   "injectors": {
     "defaultRequire": 1
