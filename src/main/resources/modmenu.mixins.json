@@ -14,7 +14,8 @@
     "SimpleOptionMixin",
     "NoFallMixin",
     "InstantMineMixin",
-    "NormalBreakSpeedFlyingMixin"
+    "NormalBreakSpeedFlyingMixin",
+    "AlwaysCritMixin"
   ],
   "injectors": {
     "defaultRequire": 1
