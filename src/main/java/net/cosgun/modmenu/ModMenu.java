@@ -1,10 +1,7 @@
 package net.cosgun.modmenu;
 
 import net.cosgun.modmenu.config.XRay;
-import net.cosgun.modmenu.hacks.BoatFlying;
-import net.cosgun.modmenu.hacks.AutoFishing;
-import net.cosgun.modmenu.hacks.Farming;
-import net.cosgun.modmenu.hacks.Flying;
+import net.cosgun.modmenu.hacks.*;
 import net.cosgun.modmenu.interfaces.ISimpleOption;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -38,6 +35,7 @@ public class ModMenu implements ModInitializer {
 	public static boolean flyBreakSpeedEnabled;
 	public static boolean alwaysCritEnabled;
 	public static boolean noAttackCooldownEnabled;
+	public static boolean itemPickupEnabled;
 
 	private double defaultGamma;
 	private ISimpleOption<Double> gammaOption2;

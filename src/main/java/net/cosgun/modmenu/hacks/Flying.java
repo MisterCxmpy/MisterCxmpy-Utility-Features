@@ -11,5 +11,4 @@ public class Flying{
     public void EnableFlying(MinecraftClient client) {
         client.player.getAbilities().allowFlying = ModMenu.flyingEnabled;
     }
-
 }
