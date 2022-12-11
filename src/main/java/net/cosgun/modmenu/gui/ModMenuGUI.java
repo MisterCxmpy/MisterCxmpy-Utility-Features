@@ -95,63 +95,63 @@ public class ModMenuGUI extends Screen {
     }
 
     protected void init() {
-        this.addDrawableChild(new ButtonWidget(this.width / 2 - 132, this.height / 4 + 0 + -16, 132, 20, autoFishingText(), (button) -> {
+        this.addDrawableChild(ButtonWidget.builder(autoFishingText(), (button) -> {
             ModMenu.autoFishingEnabled = !ModMenu.autoFishingEnabled;
             button.setMessage(autoFishingText());
-        }));
+        }).dimensions(this.width / 2 - 132, this.height / 4 + 0 + -16, 132, 20).build());
 
-        this.addDrawableChild(new ButtonWidget(this.width / 2 + 4, this.height / 4 + 0 + -16, 132, 20, autoFarmingText(), (button) -> {
+        this.addDrawableChild(ButtonWidget.builder(autoFarmingText(), (button) -> {
             ModMenu.autoFarmingEnabled = !ModMenu.autoFarmingEnabled;
             button.setMessage(autoFarmingText());
-        }));
+        }).dimensions(this.width / 2 + 4, this.height / 4 + 0 + -16, 132, 20).build());
 
-        this.addDrawableChild(new ButtonWidget(this.width / 2 - 132, this.height / 4 + 24 + -16, 132, 20, flyingText(), (button) -> {
+        this.addDrawableChild(ButtonWidget.builder(flyingText(), (button) -> {
             ModMenu.flyingEnabled = !ModMenu.flyingEnabled;
             ModMenu.getInstance().flying.EnableFlying(MinecraftClient.getInstance());
             button.setMessage(flyingText());
-        }));
+        }).dimensions(this.width / 2 - 132, this.height / 4 + 24 + -16, 132, 20).build());
 
-        this.addDrawableChild(new ButtonWidget(this.width / 2 + 4, this.height / 4 + 24 + -16, 132, 20, boatFlyingText(), (button) -> {
+        this.addDrawableChild(ButtonWidget.builder(boatFlyingText(), (button) -> {
             ModMenu.boatFlyingEnabled = !ModMenu.boatFlyingEnabled;
             button.setMessage(boatFlyingText());
-        }));
+        }).dimensions(this.width / 2 + 4, this.height / 4 + 24 + -16, 132, 20).build());
 
-        this.addDrawableChild(new ButtonWidget(this.width / 2 - 132, this.height / 4 + 48 + -16, 132, 20, xRayText(), (button) -> {
+        this.addDrawableChild(ButtonWidget.builder(xRayText(), (button) -> {
             ModMenu.xRayEnabled = !ModMenu.xRayEnabled;
             MinecraftClient.getInstance().worldRenderer.reload();
             button.setMessage(xRayText());
-        }));
+        }).dimensions(this.width / 2 - 132, this.height / 4 + 48 + -16, 132, 20).build());
 
-        this.addDrawableChild(new ButtonWidget(this.width / 2 + 4, this.height / 4 + 48 + -16, 132, 20, instaMineText(), (button) -> {
+        this.addDrawableChild(ButtonWidget.builder(instaMineText(), (button) -> {
             ModMenu.instaMineEnabled = !ModMenu.instaMineEnabled;
             ModMenu.LOGGER.info(String.valueOf(ModMenu.instaMineEnabled));
             button.setMessage(instaMineText());
-        }));
+        }).dimensions(this.width / 2 + 4, this.height / 4 + 48 + -16, 132, 20).build());
 
-        this.addDrawableChild(new ButtonWidget(this.width / 2 - 132, this.height / 4 + 72 + -16, 132, 20, noFallText(), (button) -> {
+        this.addDrawableChild(ButtonWidget.builder(noFallText(), (button) -> {
             ModMenu.noFallEnabled = !ModMenu.noFallEnabled;
             button.setMessage(noFallText());
-        }));
+        }).dimensions(this.width / 2 - 132, this.height / 4 + 72 + -16, 132, 20).build());
 
-        this.addDrawableChild(new ButtonWidget(this.width / 2 + 4, this.height / 4 + 72 + -16, 132, 20, flyBreakSpeedText(), (button) -> {
+        this.addDrawableChild(ButtonWidget.builder(flyBreakSpeedText(), (button) -> {
             ModMenu.flyBreakSpeedEnabled = !ModMenu.flyBreakSpeedEnabled;
             button.setMessage(flyBreakSpeedText());
-        }));
+        }).dimensions(this.width / 2 + 4, this.height / 4 + 72 + -16, 132, 20).build());
 
-        this.addDrawableChild(new ButtonWidget(this.width / 2 - 132, this.height / 4 + 96 + -16, 132, 20, alwaysCritText(), (button) -> {
+        this.addDrawableChild(ButtonWidget.builder(alwaysCritText(), (button) -> {
             ModMenu.alwaysCritEnabled = !ModMenu.alwaysCritEnabled;
             button.setMessage(alwaysCritText());
-        }));
+        }).dimensions(this.width / 2 - 132, this.height / 4 + 96 + -16, 132, 20).build());
 
-        this.addDrawableChild(new ButtonWidget(this.width / 2 + 4, this.height / 4 + 96 + -16, 132, 20, noAttackSpeedCooldownText(), (button) -> {
+        this.addDrawableChild(ButtonWidget.builder(noAttackSpeedCooldownText(), (button) -> {
             ModMenu.noAttackCooldownEnabled = !ModMenu.noAttackCooldownEnabled;
             button.setMessage(noAttackSpeedCooldownText());
-        }));
+        }).dimensions(this.width / 2 + 4, this.height / 4 + 96 + -16, 132, 20).build());
 
-        this.addDrawableChild(new ButtonWidget(this.width / 2 - 132, this.height / 4 + 120 + -16, 132, 20, itemPickupText(), (button) -> {
+        this.addDrawableChild(ButtonWidget.builder(itemPickupText(), (button) -> {
             ModMenu.itemPickupEnabled = !ModMenu.itemPickupEnabled;
             button.setMessage(itemPickupText());
-        }));
+        }).dimensions(this.width / 2 - 132, this.height / 4 + 120 + -16, 132, 20).build());
     }
 
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {

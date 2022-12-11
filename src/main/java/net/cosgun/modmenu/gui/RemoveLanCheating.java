@@ -34,7 +34,7 @@ public class RemoveLanCheating implements ClientModInitializer {
                             .stream()
                             .filter(widget -> widgetHasKey(widget, "selectWorld.gameMode"))
                             .findFirst().orElseThrow();
-                    gameModeButton.x = screen.width / 2 - 75;
+                    gameModeButton.setX(screen.width / 2 - 75);
                 } catch (NoSuchElementException e) {
                     logger.error("WTF!?", e);
                 }
